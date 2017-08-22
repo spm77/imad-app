@@ -5,12 +5,87 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articleOne = {
+    title: 'Article One | Sam Mathews',
+    heading: 'Article One',
+    date: 'Aug 21 2017',
+    content: `
+        <p> This is the content of my first article </p>
+    `
+};
+
+var articleTwo = {
+    title: 'Article Two | Sam Mathews',
+    heading: 'Article Two',
+    date: 'Aug 21 2017',
+    content: `
+        <p> This is the content of my second article </p>
+    `
+};
+
+var articleThree = {
+    title: 'Article Three | Sam Mathews',
+    heading: 'Article Three',
+    date: 'Aug 22 2017',
+    content: `
+        <p> This is the content of my third article </p>
+    `
+};
+
+function createTemplate(data)
+{
+    var title = data.title;
+    var heading = data.heading;
+    var content = data.content;
+    var date = data.date;
+    
+    var htmlTemplate = `
+    <html>
+        <head> 
+            <title>
+                ${title}
+            </title>
+            <meta name="viewport" content="width-device-width, initial-scale-1" />
+            <link href="/ui/style.css" rel="stylesheet" />
+    
+        </head>
+    <body>
+        <div class="container">
+            <div>
+                <a href="/">Home</a>
+            </div>
+            <hr/>
+            
+            <h3>${heading}</h3>
+            
+            <div>
+                ${date}
+            </div>
+            
+            <div>
+                <p>
+                    ${content}
+                </p>
+                
+                <p>
+                    
+                </p>
+            </div>
+        </div>
+        
+    </body>
+    </html>
+    `;
+    return htmlTemplate;
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+  //res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+  res.send(createTemplate(articleOne));
 });
 
 app.get('/article-two', function (req, res) {

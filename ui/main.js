@@ -1,23 +1,14 @@
-console.log('Loaded!');
-//var myelement = document.getElementById('main-text');
-//myelement.innerHTML = 'New Value here...';
+// Counts number of times the button has been clicked.
+var button = document.getElementById("counter");
+var counter = 0;
 
-var myimg = document.getElementById('madi');
-
-var marginLeft = 0;
-var interval = 0;
-
-function moveRight() {
-    marginLeft = marginLeft + 1;
-    myimg.style.marginLeft = marginLeft + 'px';
-}
-
-myimg.onclick = function() {    
-    //myimg.style.marginLeft = myimg.style.marginLeft + 100; 
-    if (interval === 0){
-      interval = setInterval(moveRight, 50);
-    } else {
-      clearInterval(interval);
-      interval = 0;
-    }
+button.onClick = function() {
+    // Make a request to the counter endpoint
+    
+    // Capture the response and store in a variable
+    
+    // Render the variable in the correct span
+    counter = counter + 1;
+    var count = document.getElementById("count");
+    count.innerHTML = counter.toString();
 };

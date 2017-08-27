@@ -22,5 +22,22 @@ mybutton.onclick = function() {
     // Make the request
     request.open('GET', "http://samandpriscilla.imad.hasura-app.io/counter", true);
     request.send(null);
+};
+
+// Submit name
+var nameInput = document.getElementById('name');
+var nameToSearch = nameInput.value;
+var submit_btn = document.getElementById('submit_btn');
+submit_btn.onclick = function() {
+    // Make a request to the server and send the name
     
+    // Capture a list of names and render it as a list.
+    var names = ['name one', 'name two', 'name three'];
+    var list = '';
+    for (var i=0; i< names.length; i++) {
+        list += '<li>' + names[i] + '</li>';
+    }
+    
+    var ul = document.getElementById('namelist');
+    ul.innerHTML = list;
 };

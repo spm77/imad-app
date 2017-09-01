@@ -2,10 +2,11 @@
 
 // Submit name
 var nameInput = document.getElementById('name_text');
-var nameToSearch = nameInput.value;
 var submit_btn = document.getElementById('submit_btn');
 
 submit_btn.onclick = function() {
+    // Get the name
+    var nameToSearch = nameInput.value;
     
     // Create a request
     var request = new XMLHttpRequest();

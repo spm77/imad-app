@@ -2,7 +2,7 @@
 
 // Submit name
 var nameInput = document.getElementById('name_text');
-var nameToSearch = nameInput.value;
+var nameToSearch = nameInput.text;
 var submit_btn = document.getElementById('submit_btn');
 
 submit_btn.onclick = function() {

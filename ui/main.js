@@ -3,7 +3,6 @@
 // Submit name
 var nameInput = document.getElementById('name_text');
 var nameToSearch = nameInput.value;
-
 var submit_btn = document.getElementById('submit_btn');
 
 submit_btn.onclick = function() {
@@ -17,7 +16,7 @@ submit_btn.onclick = function() {
             // Take action
             if (request.status === 200 ) {
                 // Capture a list of names and render it as a list.
-                var names = request.response.Text;
+                var names = request.responseText;
                 names = JSON.parse(names);
                 for (var i=0; i< names.length; i++) {
                     list += '<li>' + names[i] + '</li>';

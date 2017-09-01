@@ -131,10 +131,6 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 
-app.get('/submit-name', function(req, res) {
-    
-});
-
 
 
 // Do not change port, otherwise your app won't run on IMAD servers

@@ -1,12 +1,11 @@
-// Counts number of times the button has been clicked.
-var mybutton = document.getElementById("counter");
-var counter = 0;
+
+
 // Submit name
 var nameInput = document.getElementById('name');
 var nameToSearch = nameInput.value;
 var submit_btn = document.getElementById('submit_btn');
 
-mybutton.onclick = function() {
+submit_btn.onclick = function() {
     // Create a request
     var request = new XMLHttpRequest();
     
@@ -34,9 +33,3 @@ mybutton.onclick = function() {
     request.send(null);
 };
 
-
-submit_btn.onclick = function() {
-    // Make a request to the server and send the name
-    
-
-};

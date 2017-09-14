@@ -125,7 +125,7 @@ app.get('/submit-name', function(req, res) { //url/submit-name?name=param
 app.get('/articles/:articleName', function (req, res) {
   //res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
   //var articleName = req.params.articleName;
-  pool.query("SELECT * FROM article WHERE article.title = " + req.params.articleName, function(err, result) {
+  pool.query("SELECT * FROM article WHERE article.title = '" + req.params.articleName + "'", function(err, result) {
         if (err) {
           res.status(500).send(err.toString());
         } else {

@@ -1,13 +1,9 @@
 
-
 // Submit name
-var nameInput = document.getElementById('name_text');
 var submit_btn = document.getElementById('submit_btn');
 
 submit_btn.onclick = function() {
-    // Get the name
-    var nameToSearch = nameInput.value;
-    
+
     // Create a request
     var request = new XMLHttpRequest();
     
@@ -16,23 +12,23 @@ submit_btn.onclick = function() {
         if (request.readyState === XMLHttpRequest.DONE) {
             // Take action
             if (request.status === 200 ) {
-                // Capture a list of names and render it as a list.
-                var names = request.responseText;
-                names = JSON.parse(names);
-                var list = '';
-                for (var i=0; i< names.length; i++) {
-                    list += '<li>' + names[i] + '</li>';
-                }
-    
-                var ul = document.getElementById('namelist');
-                ul.innerHTML = list;
+                console.log('user is logged in.');
+                alert('logged in successfully.');
+            } else if (request.status === 403) {
+                alert('invalid username/password');
+            } else if (request.status === 500) {
+                alert('something else went wrong');
             }
         }
         // not done yet.
     };
     
     // Make the request
-    request.open('GET', "http://samandpriscilla.imad.hasura-app.io/submit-name?name="+nameToSearch, true);
-    request.send(null);
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    
+    request.open('POST', "http://samandpriscilla.imad.hasura-app.io/login, true);
+    request.setRequestHeader('Content-type', 'application/json');
+    request.send(JSON.stringify({username: username, password: password}));
 };
 

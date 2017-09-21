@@ -32,3 +32,34 @@ submit_btn.onclick = function() {
     request.send(JSON.stringify({username: username, password: password}));
 };
 
+// Create new user
+
+var createUser_btn = document.getElementById('createUser_btn');
+
+createUser_btn.onclick = function() {
+    // Create a request
+    var request = new XMLHttpRequest();
+    
+    // Capture the response and store in a variable
+    request.onreadystatechange = function() {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            // Take action
+            if (request.status === 200 ) {
+                console.log('user successfully created.');
+                alert('user created.');
+            } else if (request.status === 500) {
+                alert('user already exists');
+            }
+        }
+        // not done yet.
+    };
+    
+    // Make the request
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    
+    request.open('POST', "http://samandpriscilla.imad.hasura-app.io/login", true);
+    request.setRequestHeader('Content-type', 'application/json');
+    request.send(JSON.stringify({username: username, password: password}));
+
+};

@@ -39,7 +39,7 @@ var createUser_btn = document.getElementById('createUser_btn');
 createUser_btn.onclick = function() {
     // Create a request
     var request = new XMLHttpRequest();
-    
+    alert("Create User clicked");
     // Capture the response and store in a variable
     request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE) {

@@ -55,8 +55,8 @@ createUser_btn.onclick = function() {
     };
     
     // Make the request
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
+    var username = document.getElementById('cusername').value;
+    var password = document.getElementById('cpassword').value;
     
     request.open('POST', "http://samandpriscilla.imad.hasura-app.io/create-user", true);
     request.setRequestHeader('Content-type', 'application/json');
